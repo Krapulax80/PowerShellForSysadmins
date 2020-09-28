@@ -1,4 +1,4 @@
-$rows = Import-Csv -Path 'C:\IPAddresses.csv'
+$rows = Import-Csv -Path '.\IPAddresses.csv'
 
 foreach ($row in $rows) {
 	try {
@@ -18,6 +18,6 @@ foreach ($row in $rows) {
 	} catch {
 		$output.Error = $_.Exception.Message
 	} finally {
-		[pscustomobject]$output | Export-Csv -Path C:\DeviceDiscovery.csv -Append -NoTypeInformation
+		[pscustomobject]$output | Export-Csv -Path .\DeviceDiscovery.csv -Append -NoTypeInformation
 	}
 }
